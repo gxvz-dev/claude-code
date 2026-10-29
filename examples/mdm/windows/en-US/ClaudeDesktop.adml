@@ -44,6 +44,8 @@ This policy setting does not apply to Cowork sessions.
 
 Requires Claude Desktop 1.25927.0 or later.
 
+Note: Claude Desktop 4.29.0 does not recognize this key and ignores it. To set a default effort for Claude Code sessions on that build, use Claude Code managed settings (ClaudeCode.admx) with {"effortLevel":"low"}, "medium", "high", or "xhigh".
+
 Registry value: HKLM\SOFTWARE\Policies\Claude\effortLevel (REG_SZ)
 
 For more information, see https://support.claude.com/en/articles/12622667</string>
@@ -86,7 +88,7 @@ For more information, see https://support.claude.com/en/articles/12622667</strin
 
 If you enable or do not configure this policy setting, desktop extensions are allowed. This is the default.
 
-If you disable this policy setting, desktop extensions are blocked.
+If you disable this policy setting, desktop extensions are blocked, including extensions that are already installed.
 
 Note: This policy setting overrides the desktop extension allowlist. If your organization uses the allowlist, do not disable this policy setting.
 
@@ -113,6 +115,8 @@ For more information, see https://support.claude.com/en/articles/12622667</strin
 If you enable or do not configure this policy setting, local MCP servers are allowed. This is the default.
 
 If you disable this policy setting, local MCP servers are blocked.
+
+This policy setting does not block desktop extensions. To control those, use the "Allow desktop extensions" policy setting.
 
 Registry value: HKLM\SOFTWARE\Policies\Claude\isLocalDevMcpEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
 
