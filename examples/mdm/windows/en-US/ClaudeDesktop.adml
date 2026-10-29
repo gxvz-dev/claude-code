@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"
+                            revision="1.0" schemaVersion="1.0">
+  <displayName>Claude Desktop</displayName>
+  <description>Claude Desktop policy settings</description>
+  <resources>
+    <stringTable>
+      <!-- Categories -->
+      <string id="Cat_ClaudeDesktop">Claude Desktop</string>
+      <string id="Cat_ClaudeCode">Claude Code</string>
+      <string id="Cat_Cowork">Cowork</string>
+      <string id="Cat_Extensions">Extensions and MCP</string>
+      <string id="Cat_SignIn">Sign-in</string>
+      <string id="Cat_Updates">Updates</string>
+
+      <!-- Supported on -->
+      <string id="SUPPORTED_ClaudeDesktop">Claude Desktop for Windows</string>
+      <string id="SUPPORTED_ClaudeDesktop_1_25927">Claude Desktop for Windows 1.25927.0 or later</string>
+
+      <!-- Claude Code -->
+      <string id="isClaudeCodeForDesktopEnabled">Allow Claude Code</string>
+      <string id="isClaudeCodeForDesktopEnabled_Explain">Controls whether users can access Claude Code in the Claude Desktop app.
+
+If you enable or do not configure this policy setting, Claude Code is available in Claude Desktop. This is the default.
+
+If you disable this policy setting, users cannot access Claude Code in Claude Desktop.
+
+This policy setting applies only to Claude Desktop. The Claude Code CLI and IDE extensions are configured separately through Claude Code managed settings (HKLM\SOFTWARE\Policies\ClaudeCode).
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\isClaudeCodeForDesktopEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <string id="effortLevel">Default effort level</string>
+      <string id="effortLevel_Explain">Sets the default effort level for Claude Code sessions in Claude Desktop.
+
+If you enable this policy setting, the selected effort level is applied at the start of every Claude Code session, even if the user chose a different level from the effort picker in an earlier session. Available levels are low, medium, high, xhigh, and max.
+
+If you disable or do not configure this policy setting, no managed default is applied.
+
+This policy setting does not apply to Cowork sessions.
+
+Requires Claude Desktop 1.25927.0 or later.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\effortLevel (REG_SZ)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+      <string id="effortLevel_low">Low</string>
+      <string id="effortLevel_medium">Medium</string>
+      <string id="effortLevel_high">High</string>
+      <string id="effortLevel_xhigh">Extra high</string>
+      <string id="effortLevel_max">Max</string>
+
+      <!-- Cowork -->
+      <string id="secureVmFeaturesEnabled">Allow Cowork</string>
+      <string id="secureVmFeaturesEnabled_Explain">Controls whether users can access Cowork in the Claude Desktop app.
+
+If you enable or do not configure this policy setting, Cowork is available. This is the default.
+
+If you disable this policy setting, users cannot access Cowork.
+
+To keep Cowork available but limit which folders users can work in, use the "Allowed workspace folders" policy setting.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\secureVmFeaturesEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <string id="allowedWorkspaceFolders">Allowed workspace folders</string>
+      <string id="allowedWorkspaceFolders_Explain">Limits which folders users can mount into Cowork.
+
+If you enable this policy setting, users can mount only the folders you list. Enter the folders as a single-line JSON array of paths, escaping each backslash:
+
+["C:\\Projects","D:\\Shared"]
+
+If you disable or do not configure this policy setting, users can mount any folder. This is the default.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\allowedWorkspaceFolders (REG_SZ; JSON array)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <!-- Extensions and MCP -->
+      <string id="isDesktopExtensionEnabled">Allow desktop extensions</string>
+      <string id="isDesktopExtensionEnabled_Explain">Controls whether users can install and use desktop extensions in Claude Desktop.
+
+If you enable or do not configure this policy setting, desktop extensions are allowed. This is the default.
+
+If you disable this policy setting, desktop extensions are blocked.
+
+Note: This policy setting overrides the desktop extension allowlist. If your organization uses the allowlist, do not disable this policy setting.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\isDesktopExtensionEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <string id="isDesktopExtensionDirectoryEnabled">Allow extension directory</string>
+      <string id="isDesktopExtensionDirectoryEnabled_Explain">Controls whether users can browse and install extensions from the desktop extension directory in Claude Desktop.
+
+If you enable or do not configure this policy setting, the extension directory is available. This is the default.
+
+If you disable this policy setting, users cannot access the extension directory.
+
+Note: The desktop extension allowlist populates available extensions through the directory. If your organization uses the allowlist, do not disable this policy setting.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\isDesktopExtensionDirectoryEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <string id="isLocalDevMcpEnabled">Allow local MCP servers</string>
+      <string id="isLocalDevMcpEnabled_Explain">Controls whether users can add and run local MCP servers in Claude Desktop.
+
+If you enable or do not configure this policy setting, local MCP servers are allowed. This is the default.
+
+If you disable this policy setting, local MCP servers are blocked.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\isLocalDevMcpEnabled (REG_DWORD; 1 = enabled, 0 = disabled)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <!-- Sign-in -->
+      <string id="forceLoginOrgUUID">Restrict sign-in to organizations</string>
+      <string id="forceLoginOrgUUID_Explain">Requires users to sign in to Claude Desktop with an account that belongs to one of your Claude organizations.
+
+If you enable this policy setting, enter either:
+
+- One organization UUID. Sign-in is restricted to that organization, and it is pre-selected on the sign-in screen.
+  00000000-0000-0000-0000-000000000000
+
+- A single-line JSON array of organization UUIDs. Sign-in is allowed for any listed organization; none is pre-selected.
+  ["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]
+
+Sign-in fails for accounts that are not members of a listed organization.
+
+If you disable or do not configure this policy setting, users can sign in with any account.
+
+Claude Desktop reads this value at launch. Quit and reopen the app after a change.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\forceLoginOrgUUID (REG_SZ; a JSON array is stored as one string, not REG_MULTI_SZ)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <!-- Updates -->
+      <string id="disableAutoUpdates">Disable automatic updates</string>
+      <string id="disableAutoUpdates_Explain">Controls whether Claude Desktop updates itself automatically.
+
+If you enable this policy setting, automatic updates are turned off. Use this when your software deployment tool manages Claude Desktop versions.
+
+If you disable or do not configure this policy setting, automatic updates are turned on. This is the default, and lets Claude Desktop keep itself current after a one-time provisioned install.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\disableAutoUpdates (REG_DWORD; 1 = updates off, 0 = updates on)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+
+      <string id="autoUpdaterEnforcementHours">Update restart deadline</string>
+      <string id="autoUpdaterEnforcementHours_Explain">Sets how long Claude Desktop waits after an update is prepared before it restarts to apply the update.
+
+If you enable this policy setting, enter a deadline from 1 to 72 hours. When the deadline passes, Claude Desktop restarts automatically to apply the prepared update.
+
+If you disable or do not configure this policy setting, the deadline is 72 hours. This is the default.
+
+Registry value: HKLM\SOFTWARE\Policies\Claude\autoUpdaterEnforcementHours (REG_DWORD; 1-72)
+
+For more information, see https://support.claude.com/en/articles/12622667</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="effortLevel">
+        <dropdownList refId="effortLevel" defaultItem="2" noSort="true">Effort level:</dropdownList>
+      </presentation>
+      <presentation id="allowedWorkspaceFolders">
+        <textBox refId="allowedWorkspaceFolders">
+          <label>Folders (JSON array):</label>
+        </textBox>
+      </presentation>
+      <presentation id="forceLoginOrgUUID">
+        <textBox refId="forceLoginOrgUUID">
+          <label>Organization UUID or JSON array:</label>
+        </textBox>
+      </presentation>
+      <presentation id="autoUpdaterEnforcementHours">
+        <decimalTextBox refId="autoUpdaterEnforcementHours" defaultValue="72" spinStep="1">Hours (1-72):</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

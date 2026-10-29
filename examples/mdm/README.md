@@ -17,6 +17,7 @@ All templates encode the same minimal example (`permissions.disableBypassPermiss
 | [`macos/com.anthropic.claudecode.mobileconfig`](./macos/com.anthropic.claudecode.mobileconfig) | Full configuration profile for local testing or MDMs that take a complete profile. |
 | [`windows/Set-ClaudeCodePolicy.ps1`](./windows/Set-ClaudeCodePolicy.ps1) | Intune **Platform scripts**. Writes `managed-settings.json` to `C:\Program Files\ClaudeCode\`. |
 | [`windows/ClaudeCode.admx`](./windows/ClaudeCode.admx) + [`en-US/ClaudeCode.adml`](./windows/en-US/ClaudeCode.adml) | Group Policy or Intune **Import ADMX**. Writes `HKLM\SOFTWARE\Policies\ClaudeCode\Settings` (REG_SZ, single-line JSON). |
+| [`windows/ClaudeDesktop.admx`](./windows/ClaudeDesktop.admx) + [`en-US/ClaudeDesktop.adml`](./windows/en-US/ClaudeDesktop.adml) | Group Policy or Intune **Import ADMX** for **Claude Desktop**. Writes `HKLM\SOFTWARE\Policies\Claude` ([policy reference](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)). |
 
 ## Tips
 - Replace the placeholder `PayloadUUID` and `PayloadOrganization` values in the `.mobileconfig` with your own (`uuidgen`)
